@@ -1,0 +1,83 @@
+conky.config = {
+    temperature_unit = 'celsius',
+    alignment = 'top_right',
+    border_width = 0,
+    cpu_avg_samples = 1,
+    default_color = 'white',
+    default_outline_color = 'white',
+    default_shade_color = 'white',
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'monospace:size=9',
+    gap_x = 5,
+    gap_y = 5,
+    minimum_height = 5,
+    minimum_width = 5,
+    net_avg_samples = 2,
+    no_buffers = true,
+    double_buffer = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+
+    own_window = true,
+    own_window_class = 'conky',
+    own_window_type = 'normal',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = false,
+    own_window_argb_value = 0,
+    stippled_borders = 1,
+    update_interval = 1.0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false,
+
+    color4 = '#82D2CD',
+    color1 = '#6EB1AD',
+    color2 = '#639C99',
+    color3 = '#5E9490',
+
+    lua_load = '~/.conky/conky_lunatico.lua',
+    lua_draw_hook_post = 'main'
+}
+
+conky.text = [[
+${font}${color4}SYSTEM ${hr 1}
+${offset 10}${font}${color}Kernel: ${color4}$kernel
+${offset 10}${font}${color}Uptime: ${color4}$uptime
+
+${voffset 120}
+${color4}${offset 65}${cpugraph 20,160 82D2CD 5E9490}${voffset -5}
+${offset 45}${font}${color}CPU ${acpitemp}°C
+${offset 55}${font}${color4}${top name 1}${alignr}${top cpu 1}%
+${offset 55}${font}${color1}${top name 2}${alignr}${top cpu 2}%
+${offset 55}${font}${color2}${top name 3}${alignr}${top cpu 3}%
+${offset 55}${font}${color3}${top name 4}${alignr}${top cpu 4}%
+${offset 55}${font}${color3}${top name 5}${alignr}${top cpu 5}%
+
+${voffset 1}
+${offset 45}${font}${color}RAM $mem
+${offset 55}${font}${color4}${top_mem name 1}${alignr}${top_mem mem 1}%
+${offset 55}${font}${color1}${top_mem name 2}${alignr}${top_mem mem 2}%
+${offset 55}${font}${color2}${top_mem name 3}${alignr}${top_mem mem 3}%
+${offset 55}${font}${color3}${top_mem name 4}${alignr}${top_mem mem 4}%
+${offset 55}${font}${color3}${top_mem name 4}${alignr}${top_mem mem 5}%
+
+${voffset 2}
+${color4}${offset 65}${diskiograph 20,160 82D2CD 5E9490}${voffset -5}
+${offset 45}${font}${color}HDD
+${offset 45}${font}${color}Used: ${color4}${fs_used /}
+
+${voffset -15}
+${offset 10}${color}Wifi: $color4 ${wireless_link_qual_perc wlp4s0}%
+${offset 10}${color}Down:  $color4${downspeed wlp4s0}             
+${offset 10}${color}Up:    $color4${upspeed wlp4s0} 
+
+${font}${color4}WEATHER ${hr 1}
+${color4}${execi 360 python2 mygweather.py}
+]]
