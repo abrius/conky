@@ -9,3 +9,4 @@ Conky with lua rings ang weather data
 
 <b>/home/user/.conky/</b>
 	<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conky_lunatico.lua
+<img src="https://github.com/abrius/conky/blob/master/conkygweather.png?raw=true">
