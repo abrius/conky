@@ -2,7 +2,7 @@
 Conky with lua rings ang weather data
 
 [INSTALL] copy files, create dirs in this locations
-
+Install lua and cairo
 <b>/home/user/</b>
 	<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .conkyrc	
 	<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gweather.py	(weather code)
